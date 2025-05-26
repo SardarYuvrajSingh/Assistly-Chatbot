@@ -38,13 +38,8 @@ export async function POST(req: NextRequest) {
       .join(" + ");
     console.log(systemPrompt);
 
-    // Create the model
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-
-    // Build conversation history for Gemini
     const conversationHistory = [];
-    
-    // Add system prompt as the first user message with context
     const systemMessage = `You are a helpful assistant talking to ${name}. If a generic question is asked which is not relevant or in the same scope or domain as the points mentioned in the key information section, kindly inform the user they're only allowed to search for the specified content. Use Emoji's where possible. Here is some key information that you need to be aware of, these are elements you may be asked about: ${systemPrompt}
 
 Please acknowledge that you understand these instructions and are ready to help ${name}.`;
@@ -73,19 +68,13 @@ Please acknowledge that you understand these instructions and are ready to help 
         });
       }
     });
-
-    // Add current user message
     conversationHistory.push({
       role: "user",
       parts: [{ text: content }]
     });
-
-    // Start chat with history
     const chat = model.startChat({
-      history: conversationHistory.slice(0, -1), // All messages except the current one
+      history: conversationHistory.slice(0, -1), 
     });
-
-    // Send the current message
     const result = await chat.sendMessage(content);
     const aiResponse = result.response.text().trim();
 
@@ -95,8 +84,6 @@ Please acknowledge that you understand these instructions and are ready to help 
         { status: 500 }
       );
     }
-
-    // Step 4: Save the user's message in the database
     const currentTime = new Date().toISOString();
     await serverClient.mutate({
       mutation: INSERT_MESSAGE,
