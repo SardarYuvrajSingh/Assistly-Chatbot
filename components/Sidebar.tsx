@@ -4,41 +4,46 @@ import React from 'react'
 
 function Sidebar() {
   return (
-    <div className='bg-white text-white p-5'>
-      <ul className='gap-5 flex lg:flex-col'>
-        <li className='flex-1'>
+    <div className='bg-gradient-to-b from-[#1E3A8A] to-[#3B82F6] text-white p-6 shadow-xl rounded-xl min-h-screen'>
+      <ul className='flex flex-col gap-6'>
+        {/* Create Chatbot */}
+        <li>
           <Link
             href='/create-chatbot'
-            className='hover:opacity-50 flex flex-col text-center lg:text-left lg:flex-row items-center gap-2 p-5 rounded-md bg-[#2991EE]'
+            className='flex items-center gap-4 p-4 rounded-xl bg-[#F3F4F6] text-[#1E3A8A] hover:bg-[#E5E7EB] transition-all duration-300 group'
           >
-            <BotMessageSquare className='h-6 w-6 lg:h-8 lg:w-8' />
-            <div className='hidden lg:inline'>
-              <p className='text-xl'>Create</p>
-              <p className='text-sm font-extralight'>New Chatbot</p>
+            <BotMessageSquare className='h-6 w-6 lg:h-8 lg:w-8 text-[#1E3A8A] group-hover:scale-110 transition-transform duration-300' />
+            <div className='hidden lg:block'>
+              <p className='text-lg font-semibold'>Create</p>
+              <p className='text-sm text-[#4B5563]'>New Chatbot</p>
             </div>
           </Link>
         </li>
-        <li className='flex-1'>
+
+        {/* Edit Chatbots */}
+        <li>
           <Link
             href='/view-chatbots'
-            className='hover:opacity-50 flex flex-col text-center lg:text-left lg:flex-row items-center gap-2 p-5 rounded-md bg-[#2991EE]'
+            className='flex items-center gap-4 p-4 rounded-xl bg-[#F3F4F6] text-[#1E3A8A] hover:bg-[#E5E7EB] transition-all duration-300 group'
           >
-            <PenLine className='h-6 w-6 lg:h-8 lg:w-8' />
-            <div className='hidden lg:inline'>
-              <p className='text-xl'>Edit</p>
-              <p className='text-sm font-extralight'>Chatbots</p>
+            <PenLine className='h-6 w-6 lg:h-8 lg:w-8 text-[#1E3A8A] group-hover:scale-110 transition-transform duration-300' />
+            <div className='hidden lg:block'>
+              <p className='text-lg font-semibold'>Edit</p>
+              <p className='text-sm text-[#4B5563]'>Chatbots</p>
             </div>
           </Link>
         </li>
-        <li className='flex-1'>
+
+        {/* Review Sessions */}
+        <li>
           <Link
             href='/review-sessions'
-            className='hover:opacity-50 flex flex-col text-center lg:text-left lg:flex-row items-center gap-2 p-5 rounded-md bg-[#2991EE]'
+            className='flex items-center gap-4 p-4 rounded-xl bg-[#F3F4F6] text-[#1E3A8A] hover:bg-[#E5E7EB] transition-all duration-300 group'
           >
-            <SearchIcon className='h-6 w-6 lg:h-8 lg:w-8' />
-            <div className='hidden lg:inline'>
-              <p className='text-xl'>View</p>
-              <p className='text-sm font-extralight'>Sessions</p>
+            <SearchIcon className='h-6 w-6 lg:h-8 lg:w-8 text-[#1E3A8A] group-hover:scale-110 transition-transform duration-300' />
+            <div className='hidden lg:block'>
+              <p className='text-lg font-semibold'>View</p>
+              <p className='text-sm text-[#4B5563]'>Sessions</p>
             </div>
           </Link>
         </li>
