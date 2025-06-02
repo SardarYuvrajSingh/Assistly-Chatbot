@@ -28,61 +28,61 @@ export default function Home() {
 
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 overflow-hidden">
-      <main className="container mx-auto px-6 py-8">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16">
-          {/* Left Side - 3D Spinning Avatar - Moved Higher */}
+      <main className="container mx-auto px-4 sm:px-6 py-6 sm:py-8">
+        <div className="flex flex-col items-center gap-6 sm:gap-8 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
+          {/* Avatar Section */}
           <div
-            className={`flex-1 flex justify-center lg:justify-start transition-all duration-1000 -mt-8 lg:-mt-12 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+            className={`w-full flex justify-center lg:flex-1 lg:justify-start transition-all duration-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
           >
             <div className="relative">
               {/* Glowing background effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur-3xl opacity-30 animate-pulse scale-150"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur-2xl sm:blur-3xl opacity-20 sm:opacity-30 animate-pulse scale-150"></div>
 
-              {/* Main avatar container - Covers entire area */}
+              {/* Main avatar container */}
               <div
-                className="relative w-96 h-96 lg:w-[28rem] lg:h-[28rem] cursor-pointer group"
+                className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] cursor-pointer group"
                 onClick={regenerateAvatar}
               >
-                {/* 3D spinning avatar - Full coverage, no borders */}
-                <div className="w-full h-full rounded-full overflow-hidden shadow-2xl transform transition-all duration-300 group-hover:scale-105 animate-spin-slow">
+                {/* 3D spinning avatar */}
+                <div className="w-full h-full rounded-full overflow-hidden shadow-xl sm:shadow-2xl transform transition-all duration-300 group-hover:scale-105 animate-spin-slow">
                   <Avatar
                     seed={avatarSeed}
                     className="w-full h-full object-cover"
                   />
                 </div>
 
-                {/* Floating particles effect */}
-                <div className="absolute -top-6 -right-6 w-4 h-4 bg-blue-400 rounded-full animate-bounce opacity-70"></div>
-                <div className="absolute -bottom-6 -left-6 w-3 h-3 bg-purple-400 rounded-full animate-bounce delay-300 opacity-70"></div>
-                <div className="absolute top-1/4 -left-8 w-3 h-3 bg-indigo-400 rounded-full animate-bounce delay-500 opacity-70"></div>
-                <div className="absolute top-3/4 -right-8 w-2 h-2 bg-pink-400 rounded-full animate-bounce delay-700 opacity-70"></div>
+                {/* Floating particles effect - adjusted for mobile */}
+                <div className="absolute -top-3 -right-3 sm:-top-6 sm:-right-6 w-3 h-3 sm:w-4 sm:h-4 bg-blue-400 rounded-full animate-bounce opacity-70"></div>
+                <div className="absolute -bottom-3 -left-3 sm:-bottom-6 sm:-left-6 w-2 h-2 sm:w-3 sm:h-3 bg-purple-400 rounded-full animate-bounce delay-300 opacity-70"></div>
+                <div className="absolute top-1/4 -left-4 sm:-left-8 w-2 h-2 sm:w-3 sm:h-3 bg-indigo-400 rounded-full animate-bounce delay-500 opacity-70"></div>
+                <div className="absolute top-3/4 -right-4 sm:-right-8 w-2 h-2 bg-pink-400 rounded-full animate-bounce delay-700 opacity-70"></div>
 
                 {/* Click hint */}
-                <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 text-sm text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Click to change avatar
+                <div className="absolute -bottom-8 sm:-bottom-10 left-1/2 transform -translate-x-1/2 text-xs sm:text-sm text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Tap to change avatar
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Side - Content */}
+          {/* Content Section */}
           <div
-            className={`flex-1 text-center lg:text-left space-y-8 transition-all duration-1000 delay-300 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+            className={`w-full text-center lg:flex-1 lg:text-left space-y-6 sm:space-y-8 transition-all duration-1000 delay-300 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
           >
             {/* Main heading */}
-            <div className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-light leading-tight">
+            <div className="space-y-3 sm:space-y-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light leading-tight">
                 Welcome to{" "}
                 <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent font-bold animate-gradient-x">
                   Assistly
                 </span>
               </h1>
 
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto lg:mx-0 rounded-full"></div>
+              <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto lg:mx-0 rounded-full"></div>
             </div>
 
             {/* Subtitle */}
-            <h2 className="text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-2xl">
+            <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-full lg:max-w-2xl">
               Your customizable AI chat agent that revolutionizes customer
               conversations with intelligent,
               <span className="text-blue-600 font-semibold">
@@ -98,11 +98,11 @@ export default function Home() {
             </h2>
 
             {/* Feature highlights */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
-              <div className="group p-6 bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-white/20">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mt-8 sm:mt-12">
+              <div className="group p-4 sm:p-6 bg-white/60 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 sm:hover:-translate-y-2 border border-white/20">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
                   <svg
-                    className="w-6 h-6 text-white"
+                    className="w-5 h-5 sm:w-6 sm:h-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -115,19 +115,19 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-2">
                   Smart Conversations
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-sm sm:text-base text-gray-600">
                   AI-powered responses that understand context and provide
                   meaningful interactions.
                 </p>
               </div>
 
-              <div className="group p-6 bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-white/20">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="group p-4 sm:p-6 bg-white/60 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 sm:hover:-translate-y-2 border border-white/20">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
                   <svg
-                    className="w-6 h-6 text-white"
+                    className="w-5 h-5 sm:w-6 sm:h-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -140,19 +140,19 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-2">
                   Fully Customizable
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-sm sm:text-base text-gray-600">
                   Tailor your AI assistant's personality, responses, and
                   behavior to match your brand.
                 </p>
               </div>
 
-              <div className="group p-6 bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-white/20">
-                <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="group p-4 sm:p-6 bg-white/60 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 sm:hover:-translate-y-2 border border-white/20">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
                   <svg
-                    className="w-6 h-6 text-white"
+                    className="w-5 h-5 sm:w-6 sm:h-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
@@ -165,19 +165,19 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-2">
                   Analytics & Insights
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-sm sm:text-base text-gray-600">
                   Track conversations, monitor performance, and gain valuable
                   customer insights.
                 </p>
               </div>
 
-              <div className="group p-6 bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-white/20">
-                <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="group p-4 sm:p-6 bg-white/60 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 sm:hover:-translate-y-2 border border-white/20">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
                   <svg
-                    className="w-6 h-6 text-white"
+                    className="w-5 h-5 sm:w-6 sm:h-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -190,10 +190,10 @@ export default function Home() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-2">
                   Lightning Fast
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-sm sm:text-base text-gray-600">
                   Instant responses and real-time processing for seamless user
                   experiences.
                 </p>
@@ -202,10 +202,10 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Floating background elements */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
-        <div className="absolute top-40 right-20 w-32 h-32 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-40 w-32 h-32 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
+        {/* Floating background elements - hidden on mobile for performance */}
+        <div className="hidden sm:block absolute top-20 left-10 w-32 h-32 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
+        <div className="hidden sm:block absolute top-40 right-20 w-32 h-32 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
+        <div className="hidden sm:block absolute -bottom-8 left-40 w-32 h-32 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
       </main>
 
       <style jsx>{`
