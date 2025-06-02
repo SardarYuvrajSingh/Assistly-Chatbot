@@ -29,6 +29,7 @@ async function ViewChatbots() {
     return (
       <div className='flex-1 pb-20 p-4 sm:p-6 lg:p-10'>
         <h1 className='text-xl lg:text-3xl font-semibold mb-6'>Active Chatbots</h1>
+        <h2 className='text-l lg:text-xl font-semibold mb-6'>To edit or chat with any of the chatbots, just click on them.</h2>
         
         {sortedChatbotsByUser.length === 0 ? (
           <div className='space-y-4'>
