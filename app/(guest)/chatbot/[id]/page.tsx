@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { useParams } from "next/navigation";
+import Link from "next/link";
 import {
   Dialog,
   DialogTrigger,
@@ -262,22 +263,44 @@ function ChatbotPage() {
         </DialogContent>
       </Dialog>
       <div className="bg-gradient-to-r from-blue-500 to-purple-600 shadow-xl">
-        <div className="px-6 py-5 flex items-center space-x-4">
-          <div className="relative">
-            <Avatar
-              seed={chatBotData?.chatbots.name!}
-              className="h-14 w-14 bg-white rounded-full border-3 border-white shadow-lg"
-            />
-            <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-400 border-2 border-white rounded-full"></div>
-          </div>
-          <div className="flex-1">
-            <h1 className="text-xl font-bold text-white truncate">
-              {chatBotData?.chatbots.name}
-            </h1>
-            <div className="flex items-center space-x-1 text-blue-100">
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-              <p className="text-sm">Typically replies instantly</p>
+        <div className="px-6 py-5 flex items-center justify-between">
+          <div className="flex items-center space-x-4">
+            <div className="relative">
+              <Avatar
+                seed={chatBotData?.chatbots.name!}
+                className="h-14 w-14 bg-white rounded-full border-3 border-white shadow-lg"
+              />
+              <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-400 border-2 border-white rounded-full"></div>
             </div>
+            <div className="flex-1">
+              <h1 className="text-xl font-bold text-white truncate">
+                {chatBotData?.chatbots.name}
+              </h1>
+              <div className="flex items-center space-x-1 text-blue-100">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                <p className="text-sm">Typically replies instantly</p>
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center space-x-3">
+            <Link href="/view-chatbots">
+              <Button
+                variant="outline"
+                size="sm"
+                className="bg-white/10 border-white/20 text-white hover:bg-white/20 hover:border-white/30 backdrop-blur-sm font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
+              >
+                View Chatbots
+              </Button>
+            </Link>
+            <Link href="/">
+              <Button
+                variant="outline"
+                size="sm"
+                className="bg-white/10 border-white/20 text-white hover:bg-white/20 hover:border-white/30 backdrop-blur-sm font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
+              >
+                Back to Home
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
